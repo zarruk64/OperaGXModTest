@@ -1,0 +1,59 @@
+/*
+  GX web modding for YouTube (https://www.youtube.com/*)
+
+  YouTube's own component class names are hashed/obfuscated and change on
+  almost every deploy, so targeting them directly (like the old youtube.css
+  in this mod tried to, by copy-pasting Discord's font/variable block) breaks
+  constantly and does nothing useful.
+
+  Instead this recolors YouTube using two much more stable things:
+  1. YouTube's own design-token CSS variables (--yt-spec-*), which are part
+     of its public theming system and rarely get renamed.
+  2. Its custom element tag names (ytd-*, tp-yt-*), which are Polymer/Lit
+     component names and stay stable even when internal class names churn.
+*/
+
+:root {
+  --gx-accent: env(-opera-gx-accent-color);
+  --gx-accent-rgb: env(-opera-gx-accent-color-r), env(-opera-gx-accent-color-g), env(-opera-gx-accent-color-b);
+  --gx-bg: env(-opera-gx-background-color);
+  --gx-bg-rgb: env(-opera-gx-background-color-r), env(-opera-gx-background-color-g), env(-opera-gx-background-color-b);
+}
+
+/* Recolor YouTube's own dark-theme design tokens with the mod's GX colors */
+html[dark] {
+  --yt-spec-brand-background-solid: var(--gx-bg);
+  --yt-spec-brand-background-primary: var(--gx-bg);
+  --yt-spec-general-background-a: var(--gx-bg);
+  --yt-spec-general-background-b: rgb(var(--gx-bg-rgb));
+  --yt-spec-base-background: var(--gx-bg);
+  --yt-spec-raised-background: rgb(var(--gx-bg-rgb));
+  --yt-spec-menu-background: rgb(var(--gx-bg-rgb));
+  --yt-spec-call-to-action: var(--gx-accent);
+  --yt-spec-call-to-action-inverse: var(--gx-accent);
+  --yt-spec-icon-active-other: var(--gx-accent);
+}
+
+/* Top bar */
+ytd-masthead {
+  background-color: var(--gx-bg) !important;
+}
+
+/* Progress bar / scrubber */
+.ytp-play-progress,
+.ytp-swatch-background-color,
+tp-yt-paper-progress#progress.ytd-video-progress-bar-renderer #primaryProgress {
+  background-color: var(--gx-accent) !important;
+}
+
+/* Subscribe button */
+ytd-subscribe-button-renderer tp-yt-paper-button#subscribe-button:not([subscribed]) {
+  background-color: var(--gx-accent) !important;
+  color: #000 !important;
+}
+
+/* Links and active sidebar entry pick up the accent color */
+a.yt-simple-endpoint:hover,
+ytd-guide-entry-renderer[active] {
+  color: var(--gx-accent) !important;
+}

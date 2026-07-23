@@ -1,7 +1,5 @@
 # What are Opera GX Mods?
 
-![GXMods](images/gxmods.png)
-
 GX Mods are a collection of customizations that allow users to create unique browsing experiences within Opera GX. With GX Mods, users can modify the browser's appearance, sounds, music, theme, wallpaper and even web content using web modding and shaders.
 
 Users can install multiple mods and choose which elements to enable, giving them full control over the desired final effect.
@@ -32,12 +30,8 @@ We have video tutorials for making each aspect of a mod:
 The basic steps are:
 
 1. Try [sample mods](mods) to see what's possible.
-2. Use [Mod_Template](documentation/Mod_Template) as starting point.
-3. Read [documentation](documentation/mods.md) to improve it.
-3. Follow [guidelines](documentation/guidelines.md) to make it even better.
-4. Upload to [GX.store](https://operagx.gg/mods2) via [GX.create](https://create.gx.games/mods). 
-
-Bonus: You can use this [Figma template](https://github.com/opera-gaming/gxmods/raw/main/documentation/GXStoreFigmaTemplate.fig.zip) to create good looking images for [GX.store](https://operagx.gg/mods2).
+2. Use [Mod_Template](Mod_Template) as starting point.
+3. Upload to [GX.store](https://operagx.gg/mods2) via [GX.create](https://create.gx.games/mods).
 
 ### How to load sample mods?
 
@@ -62,5 +56,3 @@ Or uploading zipped mod to [GX.store](https://operagx.gg/mods2) via [GX.create](
 ## Is there a store?
 
 Yes. It's called [GX.store](https://operagx.gg/mods2) and you can upload mods that you created via [GX.create](https://create.gx.games/mods).
-
-![GX.store](images/gxstore.png)

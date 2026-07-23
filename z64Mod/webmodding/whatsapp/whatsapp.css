@@ -1,0 +1,45 @@
+/*
+  GX web modding for WhatsApp Web (https://web.whatsapp.com/*)
+
+  Kept intentionally simple. WhatsApp Web's internal component class names
+  are hashed and shift often (same reason the old Discord CSS in this mod
+  stopped working) and I don't have a live view of today's DOM to verify
+  exact selectors, so this avoids guessing at deep UI classes. Instead it
+  targets:
+    - html/body/#app for the overall background
+    - WhatsApp's own `data-testid` attributes, which Meta adds for their
+      own test automation and which tend to survive redesigns much better
+      than class names
+
+  If you want it to go further (message bubbles, sidebar, etc.), send a
+  screenshot with DevTools open on the element you want changed - same as
+  we did for Discord - and it's easy to extend this file with exact
+  selectors instead of guessing.
+*/
+
+:root {
+  --gx-accent: env(-opera-gx-accent-color);
+  --gx-bg: env(-opera-gx-background-color);
+}
+
+html,
+body,
+#app {
+  background-color: var(--gx-bg);
+}
+
+/* Chat list header and open-conversation header */
+header[data-testid="conversation-header"],
+div[data-testid="chat-list-header"] {
+  background-color: var(--gx-bg) !important;
+}
+
+/* Unread message count badge */
+span[data-testid="icon-unread-count"] {
+  background-color: var(--gx-accent) !important;
+}
+
+/* Links */
+a {
+  color: var(--gx-accent);
+}
